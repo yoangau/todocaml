@@ -1,0 +1,1 @@
+let () = Todocaml.App.run ()

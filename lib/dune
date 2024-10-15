@@ -1,0 +1,20 @@
+(rule
+ (targets task_j.ml task_j.mli)
+ (deps task.atd)
+ (mode fallback)
+ (action
+  (run atdgen -j %{deps})))
+
+(rule
+ (targets task_t.ml task_t.mli)
+ (deps task.atd)
+ (mode fallback)
+ (action
+  (run atdgen -t %{deps})))
+
+(library
+ (name todocaml)
+ (public_name todocaml)
+ (modules app datetime io storage model task task_j task_t ui)
+ (private_modules datetime io storage model task task_j task_t ui)
+ (libraries base stdio yojson atdgen unix))

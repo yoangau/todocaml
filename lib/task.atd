@@ -1,0 +1,12 @@
+type task =
+  { 
+    id: int;
+    title : string;
+    description : string;
+    createdAt : string;
+    modifiedAt : string;
+    ?completedAt : string option;
+    ?deletedAt : string option
+  }
+
+type tasks = { tasks : task list }
